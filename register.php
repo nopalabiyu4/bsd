@@ -44,18 +44,18 @@ if(isset($_POST["signUp"]) ) {
                         <div class="row register-form">
                             <div class="col-md-6">
                                 <div class="form-group">NISN
-                                    <input type="number" name="nisn" class="form-control" placeholder="NISN" value="" />
+                                    <input type="number" name="nisn" class="form-control" placeholder="NISN" value="" required/>
                                 </div>
                                 <div class="form-group">Nama
-                                    <input type="text" name="nama" class="form-control" placeholder="Nama" value="" />
+                                    <input type="text" name="nama" class="form-control" placeholder="Nama" value="" required/>
                                 </div>
                                 <div class="form-group">Password
-                                    <input type="password" name="password" class="form-control" placeholder="Password" value="" />
+                                    <input type="password" name="password" class="form-control" placeholder="Password" value="" required/>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">Kelas
-                                    <select name="kelas" class="form-control">
+                                    <select name="kelas" class="form-control" required>
                                         <option class="hidden" selected disabled>Pilih Kelas</option>
                                         <option value="X">X</option>
                                         <option value="XI">XI</option>
@@ -63,7 +63,7 @@ if(isset($_POST["signUp"]) ) {
                                     </select>
                                 </div>
                                 <div class="form-group">Jurusan
-                                    <select name="jurusan" class="form-control">
+                                    <select name="jurusan" class="form-control" required>
                                         <option class="hidden" selected disabled>Pilih Jurusan</option>
                                         <option value="Otomatisasi dan Tata Kelola Perkantoran">Otomatisasi dan Tata Kelola Perkantoran</option>
                                         <option value="Akuntansi dan Keuangan Lembaga">Akuntansi dan Keuangan Lembaga</option>
@@ -73,7 +73,7 @@ if(isset($_POST["signUp"]) ) {
                                     </select>
                                 </div>
                                 <div class="form-group">Alamat
-                                    <input type="text" name="alamat" class="form-control" value="" />
+                                    <input type="text" name="alamat" class="form-control" placeholder="Alamat" value="" required/>
                                 </div>
                                 <input type="submit" name="signUp" class="btnRegister" value="Register"/>
                             </div>
