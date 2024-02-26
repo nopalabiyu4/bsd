@@ -18,23 +18,24 @@ $nis = $_SESSION['nisn'];
 
 // Now you can use $nis wherever you need it
 require "../config/config.php";
-//search buku
-if (isset($_POST["search"])) {
-  $buku = search($_POST["keyword"]);
-}
-
 // Pagination
 $itemsPerPage = 4;
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $offset = ($page - 1) * $itemsPerPage;
-
+// query read semua buku
 $buku = queryReadData("SELECT * FROM buku order by id_buku DESC LIMIT $offset, $itemsPerPage");
+//search buku
+if (isset($_POST["search"])) {
+  $buku = search($_POST["keyword"]);
+}
 
 // Query to get the total number of books
 $totalItems = queryReadData("SELECT COUNT(*) AS total FROM buku")[0]['total'];
 $totalPages = ceil($totalItems / $itemsPerPage);
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
