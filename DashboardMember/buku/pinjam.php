@@ -187,6 +187,57 @@ if (isset($_POST["pinjam"])) {
           <?php endforeach; ?>
         </div>
 
+        <div class="card mt-4">
+          <h5 class="card-header">Data lengkap Siswa</h5>
+          <div class="card-body d-flex flex-wrap gap-4 justify-content-center">
+            <p><img src="../../assets/user.png" width="150px"></p>
+            <form action="" method="post" class="w-100">
+              <?php foreach ($dataSiswa as $item): ?>
+
+                <div class="row">
+                  <div class="col-md-6 col-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1">NISN</span>
+                      <input type="number" class="form-control" placeholder="nisn" aria-label="nisn"
+                        aria-describedby="basic-addon1" value="<?= $item["nisn"]; ?>" readonly>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1">Nama</span>
+                      <input type="text" class="form-control" placeholder="nama" aria-label="nama"
+                        aria-describedby="basic-addon1" value="<?= $item["nama"]; ?>" readonly>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 col-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1">Kelas</span>
+                      <input type="text" class="form-control" placeholder="kelas" aria-label="kelas"
+                        aria-describedby="basic-addon1" value="<?= $item["kelas"]; ?>" readonly>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1">Jurusan</span>
+                      <input type="text" class="form-control" placeholder="jurusan" aria-label="jurusan"
+                        aria-describedby="basic-addon1" value="<?= $item["jurusan"]; ?>" readonly>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Alamat</span>
+                  <input type="text" class="form-control" placeholder="no tlp" aria-label="no tlp"
+                    aria-describedby="basic-addon1" value="<?= $item["alamat"]; ?>" readonly>
+                </div>
+              <?php endforeach; ?>
+            </form>
+          </div>
+        </div>
+
         <div class="alert alert-danger mt-4" role="alert">Silahkan periksa kembali data diatas, pastikan sudah benar
           sebelum meminjam buku! jika ada kesalahan data harap hubungi petugas.</div>
 
