@@ -2,7 +2,7 @@
 $host = "127.0.0.1";
 $username = "root";
 $password = "";
-$database_name = "nopal";
+$database_name = "noval";
 $connection = mysqli_connect($host, $username, $password, $database_name);
 
 /* SIGN UP Member */
@@ -359,4 +359,14 @@ function pengembalian() {
   }
 }
 
+// Batal Pinjam
+function batalPinjam($Id)
+{
+  global $connection;
 
+  $queryBatalPinjam = "DELETE FROM peminjaman WHERE id = '$Id'
+  ";
+  mysqli_query($connection, $queryBatalPinjam);
+
+  return mysqli_affected_rows($connection);
+}

@@ -194,9 +194,12 @@ order by peminjaman.status ASC");
                     </td>
                     <td align="center">
                       <?php
-                      if ($item['status'] == '0') {
-                        echo '<b class="badge bg-warning">Menunggu Persetujuan</b>';
-                      } elseif ($item['status'] == '1') {
+                        if ($item['status'] == '0') {
+                          echo '<b class="badge bg-warning">Menunggu Persetujuan</b>';
+                          ?>
+                          <a href="batal_pinjam.php?id=<?= $item['peminjaman_id']; ?>" class="btn btn-danger mt-2" style="width:100px;" onclick="return confirm('Apakah anda ingin membatalkan peminjaman ini?');"> Batalkan</a>
+                          <?php
+                        } elseif ($item['status'] == '1') {
                         ?>
                         <div>
                           <a href="bacabuku.php?id_buku=<?= $item['id_buku']; ?>" class="btn btn-primary mt-1"> Baca</a>
