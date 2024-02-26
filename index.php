@@ -1,25 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
 require "config/config.php";
+// Pagination
+$itemsPerPage = 4;
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$offset = ($page - 1) * $itemsPerPage;
+// query read semua buku
+$buku = queryReadData("SELECT * FROM buku order by id_buku DESC LIMIT $offset, $itemsPerPage");
 //search buku
 if (isset($_POST["search"])) {
   $buku = search($_POST["keyword"]);
 }
 
-// Pagination
-$itemsPerPage = 4;
-$page = isset($_GET['page']) ? $_GET['page'] : 1;
-$offset = ($page - 1) * $itemsPerPage;
-
-$buku = queryReadData("SELECT * FROM buku order by id_buku DESC LIMIT $offset, $itemsPerPage");
-
 // Query to get the total number of books
 $totalItems = queryReadData("SELECT COUNT(*) AS total FROM buku")[0]['total'];
 $totalPages = ceil($totalItems / $itemsPerPage);
-
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -149,10 +147,10 @@ $totalPages = ceil($totalItems / $itemsPerPage);
 
   <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
     <div class="container-fluid">
-      <a class="navbar-brand me-0 mx-3" href="dashboard.php">
+      <a class="navbar-brand me-0 mx-3" href="index.php">
         <img src="assets/bookstore.png" alt="Avatar Logo" style="width:50px;">
       </a>
-      <a class="navbar-brand" href="dashboard.php"
+      <a class="navbar-brand" href="index.php"
         style="font-family: 'Shadows Into Light', cursive; font-size: 150%;">Book Store Digital</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
         <span class="navbar-toggler-icon"></span>
